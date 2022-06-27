@@ -8,6 +8,17 @@
         border: solid;
         height: 100px;
       }
+      
+      .container {
+        color: blue;
+        background-color: darkcyan;
+        padding: 0px;
+        margin: 5px;
+        width: fit-content;
+        height: fit-content;
+        box-sizing: border-box;
+        display: inline-block;
+      }
     </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,17 +27,28 @@
   </head>
   <body style="text-align: center">
     <h2>Pick an Image</h2>
-    <div>
+    <div class="container">
       <img src="img1.png" alt="elephant" class="img" />
-      <img src="img1.png" alt="elephant" class="img" />
-      <img src="img1.png" alt="elephant" class="img" />
-      <div>
-        <img src="img1.png" alt="elephant" class="img" />
-        <img src="img1.png" alt="elephant" class="img" />
-        <img src="img1.png" alt="elephant" class="img" />
-      </div>
-      <button class="resetGame">Reset</button>
     </div>
+    <div class="container">
+      <img src="img1.png" alt="elephant" class="img" />
+    </div>
+    <div class="container">
+      <img src="img1.png" alt="elephant" class="img" />
+    </div> 
+  </br>
+  <div class="container">
+    <img src="img1.png" alt="elephant" class="img"/>
+  </div>
+  <div class="container">
+    <img src="img1.png" alt="elephant" class="img" />
+  </div>
+  <div class="container">
+    <img src="img1.png" alt="elephant" class="img" />
+  </div>
+  
+</br>
+    <button class="resetGame">Reset</button>
     <script src="script.js"></script>
   </body>
 </html>
