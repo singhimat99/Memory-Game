@@ -37,6 +37,11 @@ function hideImages() {
   }
 }
 
+function revealImages(j) {
+  if (images[j].style.visibility === "hidden") {
+    images[j].style.visibility = "visible";
+  }
+}
 function resetGame() {
   reassignImages();
   hideImages();
@@ -44,15 +49,32 @@ function resetGame() {
 resetGame();
 reset.addEventListener("click", resetGame);
 
+let clicks = 0;
+let check = [];
 for (let i = 0; i < containers.length; i++) {
   containers[i].addEventListener("click", function () {
-    if (images[i].style.visibility === "hidden") {
-      images[i].style.visibility = "visible";
-    } else {
-      images[i].style.visibility = "hidden";
+    revealImages(i);
+    clicks++;
+    if (clicks <= 1) {
+      check[0] = i;
     }
+    if (clicks == 2) {
+      check[1] = i;
+      if (images[check[1]].src === images[check[0]].src) {
+        alert("You win!");
+        resetGame();
+      } else {
+        alert("Try Again :(");
+        hideImages();
+      }
+      clicks = 0;
+    }
+    // else {
+    //   images[i].style.visibility = "hidden";
+    // }
   });
 }
+
 // function revealImage(i) {
 //   if (images[i].style.visibility === "hidden") {
 //     images[i].style.visibility = "visible";
