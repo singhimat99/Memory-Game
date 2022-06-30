@@ -3,6 +3,8 @@ const reset = document.querySelector(".resetGame");
 const images = document.querySelectorAll(".img");
 const containers = document.querySelectorAll(".container");
 let numbers = [];
+let clicks = 0;
+let check = [];
 
 function randomize() {
   let unique = [];
@@ -45,12 +47,12 @@ function revealImages(j) {
 function resetGame() {
   reassignImages();
   hideImages();
+  clicks = 0;
+  check = [];
 }
 resetGame();
 reset.addEventListener("click", resetGame);
 
-let clicks = 0;
-let check = [];
 for (let i = 0; i < containers.length; i++) {
   containers[i].addEventListener("click", function () {
     revealImages(i);
@@ -61,17 +63,18 @@ for (let i = 0; i < containers.length; i++) {
     if (clicks == 2) {
       check[1] = i;
       if (images[check[1]].src === images[check[0]].src) {
-        alert("You win!");
-        resetGame();
+        setTimeout(function () {
+          alert("You win!");
+          resetGame();
+        }, 100);
       } else {
-        alert("Try Again :(");
-        hideImages();
+        setTimeout(function () {
+          alert("Try Again :(");
+          hideImages();
+        }, 100);
+        clicks = 0;
       }
-      clicks = 0;
     }
-    // else {
-    //   images[i].style.visibility = "hidden";
-    // }
   });
 }
 
